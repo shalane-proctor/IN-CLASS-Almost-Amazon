@@ -28,7 +28,7 @@ const navigationEvents = () => {
     getAuthors().then((authorsArray) => {
       if (authorsArray.length > 0) {
         showAuthors(authorsArray);
-      } else if (authorsArray === 0) { emptyAuthors(); }
+      } else if (authorsArray === null || authorsArray === undefined) { emptyAuthors(); }
     });
   });
 

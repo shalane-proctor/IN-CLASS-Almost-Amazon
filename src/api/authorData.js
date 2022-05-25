@@ -4,8 +4,6 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// const dbUrl = firebaseConfig.databaseURL;
-
 // FIXME:  GET ALL AUTHORS
 const getAuthors = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/authors.json`)
