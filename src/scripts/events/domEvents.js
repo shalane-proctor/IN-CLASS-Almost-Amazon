@@ -2,7 +2,7 @@ import { deleteBook } from '../../api/bookData';
 import { showBooks } from '../components/pages/books';
 import viewBookDetails from '../../api/mergedData';
 import viewBook from '../components/pages/viewBook';
-import { deleteSingleAuthor } from '../../api/authorData';
+import { deleteSingleAuthor, favoriteAuthors } from '../../api/authorData';
 import { showAuthors } from '../components/pages/authors';
 
 const domEvents = () => {
@@ -41,6 +41,11 @@ const domEvents = () => {
         const [, authorFirebaseKey] = e.target.id.split('--');
         deleteSingleAuthor(authorFirebaseKey).then((authorArray) => showAuthors(authorArray));
       }
+    }
+
+    if (e.target.id.includes('author-favorite')) {
+      const [, authorFavoriteFirebaseKey] = e.target.id.split('--');
+      favoriteAuthors(authorFavoriteFirebaseKey).then((authorFavoriteArray) => showAuthors(authorFavoriteArray));
     }
 
     // FIXME: ADD CLICK EVENT FOR SHOWING FORM FOR ADDING AN AUTHOR

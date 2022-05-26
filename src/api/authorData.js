@@ -30,6 +30,14 @@ const deleteSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+// FAVORITE AUTHOR FILTER
+const favoriteAuthors = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/authors.json?orderBy="favorite"&equalTo=true`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
 // FIXME: UPDATE AUTHOR
 const updateAuthor = () => {};
 
@@ -41,6 +49,7 @@ export {
   createAuthor,
   getSingleAuthor,
   deleteSingleAuthor,
+  favoriteAuthors,
   updateAuthor,
   getAuthorBooks,
 };
