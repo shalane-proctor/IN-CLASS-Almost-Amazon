@@ -25,7 +25,7 @@ const showAuthors = (array) => {
         <i class="btn btn-danger fas fa-trash-alt" id="delete-author-btn--${
   item.firebaseKey
 }"></i>
-  <i id="favorite--${
+  <i id="author-favorite--${
   item.firebaseKey
 }"  class="btn btn-secondary fas fa-solid fa-star ${
   item.favorite ? 'btn-warning' : ''

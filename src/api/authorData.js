@@ -42,7 +42,13 @@ const favoriteAuthors = () => new Promise((resolve, reject) => {
 const updateAuthor = () => {};
 
 // TODO: GET A SINGLE AUTHOR'S BOOKS
-const getAuthorBooks = () => {};
+const getAuthorBooks = (authorFirebaseKey) => new Promise((resolve, reject) => {
+  axios.get(
+    `${dbUrl}/books.json?orderBy="author_id"&equalTo="${authorFirebaseKey}"`
+  )
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 
 export {
   getAuthors,
