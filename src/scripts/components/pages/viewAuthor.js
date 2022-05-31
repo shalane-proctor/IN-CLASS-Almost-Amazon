@@ -4,7 +4,6 @@ import renderToDOM from '../../helpers/renderToDom';
 const viewAuthor = (item) => {
   clearDom();
   let domString = '';
-
   domString = `
   <div class="card" style="width: 18rem;">
       <div class="card-body">
@@ -29,7 +28,7 @@ const viewAuthor = (item) => {
    <div class="d-flex flex-column">
      <img src=${obj.image} alt=${obj.title} style="width: 300px;">
      <div class="mt-5">
-       <i id="edit-book-btn--${obj.firebaseKey}" class="fas fa-edit btn btn-info"></i>
+       <i id="edit-author-btn--${obj.firebaseKey}" class="fas fa-edit btn btn-info"></i>
        <i id="delete-book--${
   obj.firebaseKey
 }" class="btn btn-danger fas fa-trash-alt"></i>
