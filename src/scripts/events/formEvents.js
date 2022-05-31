@@ -1,4 +1,4 @@
-import { updateAuthor } from '../../api/authorData';
+import { updateAuthor, createAuthor } from '../../api/authorData';
 import { createBook, updateBook } from '../../api/bookData';
 import { showAuthors } from '../components/pages/authors';
 import { showBooks } from '../components/pages/books';
@@ -13,7 +13,7 @@ const formEvents = () => {
         image: document.querySelector('#image').value,
         price: document.querySelector('#price').value,
         description: document.querySelector('#description').value,
-        sale: document.querySelector('#sale').value,
+        sale: document.querySelector('#sale').checked,
         author_id: document.querySelector('#author_id').value,
       };
       createBook(bookObject).then((bookArray) => showBooks(bookArray));
@@ -27,7 +27,7 @@ const formEvents = () => {
         image: document.querySelector('#image').value,
         price: document.querySelector('#price').value,
         description: document.querySelector('#description').value,
-        sale: document.querySelector('#sale').value,
+        sale: document.querySelector('#sale').checked,
         author_id: document.querySelector('#author_id').value,
         firebaseKey
       };
@@ -38,11 +38,11 @@ const formEvents = () => {
     if (e.target.id.includes('submit-author')) {
       const authorObject = {
         email: document.querySelector('#email').value,
-        favorite: document.querySelector('#favorite').value,
+        favorite: document.querySelector('#favorite').checked,
         first_name: document.querySelector('#first_name').value,
         last_name: document.querySelector('#last_name').value,
       };
-      updateAuthor(authorObject).then(showAuthors);
+      createAuthor(authorObject).then(showAuthors);
     }
 
     // FIXME:ADD CLICK EVENT FOR EDITING AN AUTHOR
@@ -50,7 +50,7 @@ const formEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       const authorObject = {
         email: document.querySelector('#email').value,
-        favorite: document.querySelector('#favorite').value,
+        favorite: document.querySelector('#favorite').checked,
         first_name: document.querySelector('#first_name').value,
         last_name: document.querySelector('#last_name').value,
         firebaseKey
