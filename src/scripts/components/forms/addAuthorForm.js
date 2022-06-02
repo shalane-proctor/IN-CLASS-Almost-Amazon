@@ -33,7 +33,7 @@ const addAuthorForm = (uid, obj = {}) => {
       <button type="submit" class="btn btn-primary mt-3">Submit Author</button>
     </form>`;
 
-  renderToDOM(uid, '#form-container', domString);
+  renderToDOM('#form-container', domString, uid);
 };
 
 export default addAuthorForm;
