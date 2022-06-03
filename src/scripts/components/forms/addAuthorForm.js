@@ -1,7 +1,7 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
-const addAuthorForm = (obj = {}) => {
+const addAuthorForm = (uid, obj = {}) => {
   clearDom();
   const domString = `
     <form id="${
@@ -33,7 +33,7 @@ const addAuthorForm = (obj = {}) => {
       <button type="submit" class="btn btn-primary mt-3">Submit Author</button>
     </form>`;
 
-  renderToDOM('#form-container', domString);
+  renderToDOM('#form-container', domString, uid);
 };
 
 export default addAuthorForm;
