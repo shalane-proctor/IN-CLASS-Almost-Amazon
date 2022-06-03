@@ -12,7 +12,10 @@ const navigationEvents = (uid) => {
 
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    booksOnSale(uid).then((saleBooksArray) => showBooks(saleBooksArray));
+    booksOnSale(uid).then((saleBooksArray) => {
+      const saleBookUid = saleBooksArray.filter((book) => book.uid);
+      showBooks(saleBookUid);
+    });
   });
 
   // TODO: ALL BOOKS
@@ -27,13 +30,16 @@ const navigationEvents = (uid) => {
   document.querySelector('#authors').addEventListener('click', () => {
     getAuthors(uid).then((authorsArray) => {
       if (authorsArray) {
-        showAuthors(authorsArray);
+        showAuthors(authorsArray, uid);
       } else { emptyAuthors(); }
     });
   });
 
   document.querySelector('#favorite-authors').addEventListener('click', () => {
-    favoriteAuthors(uid).then((favoriteAuthorArray) => showAuthors(favoriteAuthorArray));
+    favoriteAuthors(uid).then((favoriteAuthorArray) => {
+      const favAuthUid = favoriteAuthorArray.filter((author) => author.uid);
+      showAuthors(favAuthUid);
+    });
   });
 
   // STRETCH: SEARCH

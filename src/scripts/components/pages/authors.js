@@ -6,7 +6,7 @@ const emptyAuthors = () => {
   renderToDOM('#store', domString);
 };
 
-const showAuthors = (array) => {
+const showAuthors = (array, uid) => {
   clearDom();
 
   const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-author-btn">Add An Author</button>';
@@ -40,7 +40,7 @@ const showAuthors = (array) => {
     </div>
     `;
     });
-    renderToDOM('#store', domString);
+    renderToDOM('#store', domString, uid);
   } else { emptyAuthors(); }
 };
 
